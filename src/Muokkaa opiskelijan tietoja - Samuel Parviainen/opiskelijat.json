@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "nimi": "Matti",
+        "ala": "Ohjelmistokehitys"
+    },
+    {
+        "id": 2,
+        "nimi": "Maija Virtanen",
+        "ala": "Kyberturvallisuus"
+    }
+]

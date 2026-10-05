@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nimi": "pien kukki",
+        "kirjoittaja": "Van halsing",
+        "julkaisuvuosi": "1902"
+    },
+    {
+        "id": 2,
+        "nimi": "kaljakortti",
+        "kirjoittaja": "Programmer",
+        "julkaisuvuosi": "2031"
+    },
+    {
+        "id": 3,
+        "nimi": "minä",
+        "kirjoittaja": "ChatGPT",
+        "julkaisuvuosi": "2026"
+    }
+]

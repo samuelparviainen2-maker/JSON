@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "nimi": "Matti",
+        "ala": "Ohjelmistokehitys"
+    },
+    {
+        "id": 2,
+        "nimi": "Maija",
+        "ala": "Tietoverkot"
+    },
+    {
+        "id": 3,
+        "nimi": "Pekka",
+        "ala": "Kyberturvallisuus"
+    }
+]

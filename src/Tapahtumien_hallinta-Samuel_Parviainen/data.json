@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "nimi": "Mekaaninen näppäimistö",
+        "paikka": "vdd",
+        "pvm": "2026-10-21",
+        "osallistujamaara": 14
+    },
+    {
+        "id": 2,
+        "nimi": "Mekaaninen näppäimistö",
+        "paikka": "vdd",
+        "pvm": "2026-10-21",
+        "osallistujamaara": 14
+    },
+    {
+        "id": 3,
+        "nimi": "Mekaaninen näppäimistö",
+        "paikka": "vdd",
+        "pvm": "2026-10-21",
+        "osallistujamaara": 14
+    },
+    {
+        "id": 4,
+        "nimi": "Mekaaninen näppäimistö",
+        "paikka": "vdd",
+        "pvm": "2026-10-21",
+        "osallistujamaara": 14
+    },
+    {
+        "id": 5,
+        "nimi": "tietokone",
+        "paikka": "vdd",
+        "pvm": "2026-10-13",
+        "osallistujamaara": 6
+    },
+    {
+        "id": 6,
+        "nimi": "tietokone",
+        "paikka": "vdd",
+        "pvm": "2026-10-13",
+        "osallistujamaara": 6
+    },
+    {
+        "id": 7,
+        "nimi": "tietokone",
+        "paikka": "vdd",
+        "pvm": "2026-10-13",
+        "osallistujamaara": 6
+    }
+]

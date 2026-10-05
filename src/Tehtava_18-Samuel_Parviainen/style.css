@@ -1,0 +1,125 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 15px;
+    background: #FFFFFF;
+    background: linear-gradient(to top, #FFFFFF 0%, #C3FFFD 21%, #FFFFFF 100%);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.sisalto {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #472424;
+    font-size: 1.8rem;
+}
+
+.laatikko {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccb8b8;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #17aa2f;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #388a12;
+}
+
+.viesti {
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #8de46b;
+    border-left: 5px solid #23aa17;
+}
+
+.virhe {
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #ec6c6c;
+    border-left: 5px solid #b00020;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+th,
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+}
+
+th {
+    color: white;
+    background-color: #23521f;
+}
+
+tr:hover {
+    background-color: #f5f7fa;
+}
+
+.ei-tuotteita {
+    color: #666666;
+}
+
+
+@media (min-width: 600px) {
+    body {
+        padding: 30px;
+    }
+
+    .laatikko {
+        padding: 25px;
+    }
+
+    button {
+        width: auto;
+    }
+}

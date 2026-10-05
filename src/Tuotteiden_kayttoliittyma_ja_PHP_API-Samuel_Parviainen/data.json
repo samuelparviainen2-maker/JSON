@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "nimi": "tietokone",
+        "hinta": 9
+    },
+    {
+        "id": 2,
+        "nimi": "tietokone",
+        "hinta": 9
+    },
+    {
+        "id": 3,
+        "nimi": "tietokone",
+        "hinta": 9
+    },
+    {
+        "id": 4,
+        "nimi": "allas",
+        "hinta": 0.01
+    },
+    {
+        "id": 5,
+        "nimi": "lapsia",
+        "hinta": 0
+    }
+]
