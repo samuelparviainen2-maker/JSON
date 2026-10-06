@@ -14,9 +14,9 @@
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       <li><a href="index.php">Home</a></li>
-      <li><a href="uusiauto.php">Lisää uusi auto</a></li>
-      <li><a href="muokkaa.php">Muokkaa autoja</a></li>
-      <li><a href="poista.php">Poista autoja</a></li>
+      <li><a href="muokkaus.php">Muokkaa</a></li>
+      <li><a href="poisto.php">Poista</a></li>
+      
     </ul>
   </div>
 </nav>

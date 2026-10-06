@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    padding: 0 24px 40px;
+    background: linear-gradient(180deg, #f3f7f1 0%, #eef4f9 100%);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1f2a37;
+}
+
+h1,
+h2 {
+    margin: 24px 0 18px;
+    color: #173b1c;
+    text-align: center;
+}
+
+.haku,
+.sisalto,
+.lista {
+    background: #ffffff;
+    border: 1px solid #dfe7dc;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(20, 55, 35, 0.08);
+    padding: 24px;
+}
+
+.lista {
+    width: min(1400px, 100%);
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.haku {
+    width: min(320px, 100%);
+    flex: 0 0 320px;
+}
+
+.sisalto {
+    flex: 1 1 600px;
+    min-width: 0;
+}
+
+.sailio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+
+    background: white;
+    box-shadow: 0 8px 22px rgba(18, 40, 28, 0.06);
+}
+
+th,
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #e7ece8;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    color: #ffffff;
+    background: linear-gradient(135deg, #30742a 0%, #2e6d2d 100%);
+    font-weight: 700;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f5fbf4;
+}
+
+label {
+    display: block;
+    margin: 14px 0 8px;
+    font-weight: 700;
+    color: #264a2e;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: 1px solid #cfd8d2;
+    border-radius: 10px;
+    background: #f9fbfa;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2f8f41;
+    box-shadow: 0 0 0 4px rgba(47, 143, 65, 0.12);
+}
+
+button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #1a9d36 0%, #2c7a29 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(29, 125, 43, 0.22);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+button:hover {
+    filter: brightness(1.03);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(29, 125, 43, 0.28);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.viesti,
+.hakuvirhe,
+.virhe {
+    max-width: 1200px;
+    margin: 18px auto 0;
+    padding: 16px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 8px 18px rgba(31, 42, 55, 0.06);
+}
+
+.viesti {
+    background: #ebf9ee;
+    border-left: 6px solid #2ca653;
+    color: #1d5b2e;
+}
+
+.hakuvirhe,
+.virhe {
+    background: #fdecec;
+    border-left: 6px solid #d93c3c;
+    color: #7c1d1d;
+}
+
+form {
+    width: 100%;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e3e8e4;
+    margin: 24px 0;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .haku,
+    .sisalto {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

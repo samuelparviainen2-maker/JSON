@@ -84,6 +84,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         } else {
             $_SESSION["auto_viesti"] = "Ajanvarauksen tila päivitetty onnistuneesti.";
         }
+
+
         
 header("Location: index.php");
 exit;
@@ -92,13 +94,25 @@ exit;
         $_SESSION["auto_viesti"] = "Virheellinen tila. Sallitut arvot ovat: Varattu, Peruttu, Suoritettu.";
     }
 }
-// Haetaan kaikki autot API:sta
+
+if($_SERVER["REQUEST_METHOD"] === "GET") {
+    $id = trim((string) ($_GET["id"] ?? ""));
+    $elain = trim((string) ($_GET["elain"] ?? ""));
+}
+// Haetaan ajanvaraukset API:sta
+$parametrit = array_filter(
+    ["id" => $id, "elain" => $elain],
+    static fn ($arvo) => $arvo !== ""
+);
+$kysely = http_build_query($parametrit);
+$apiurl = $apiaddress . ($kysely !== "" ? "?" . $kysely : "");
+
 $curl = curl_init();
 
 curl_setopt(
     $curl,
     CURLOPT_URL,
-    $apiaddress . ($id !== "" ? "?id=" . urlencode($id) : "")
+    $apiurl
 );
 curl_setopt(
     $curl,
@@ -149,9 +163,11 @@ curl_close($curl);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Ajanvarauksen hallinta</h1>
+    
     <?php include 'header.php'; ?>
-
+    <h1>Ajanvarauksen hallinta</h1>
+    <div class="sailio">
+    
     <?php if ($viesti !== ""): ?>
     <div class="viesti">
         <p><?php echo htmlspecialchars($viesti, ENT_QUOTES, 'UTF-8'); ?></p>
@@ -175,7 +191,7 @@ curl_close($curl);
             <input type="text" id="laji" name="laji" value="<?php echo htmlspecialchars($laji, ENT_QUOTES, 'UTF-8'); ?>">
             <br>
             <label for="ika">Ikä:</label>
-            <input type="text" id="ika" name="ika" value="<?php echo htmlspecialchars($ika, ENT_QUOTES, 'UTF-8'); ?>">
+            <input type="number" id="ika"  min="0" max="30" name="ika" value="<?php echo htmlspecialchars($ika, ENT_QUOTES, 'UTF-8'); ?>">
             <br>
             <label for="puhelin">Puhelin:</label>
             <input type="text" id="puhelin" name="puhelin" value="<?php echo htmlspecialchars($puhelin, ENT_QUOTES, 'UTF-8'); ?>">
@@ -195,6 +211,19 @@ curl_close($curl);
         </form>
     </div>
     <div class="sisalto">
+        <form method="get" action="index.php">
+            <label for="id">Hae ajanvaraus ID:llä:</label>
+            <input type="number" id="id" min="1" name="id" value="<?php echo htmlspecialchars($id, ENT_QUOTES, 'UTF-8'); ?>">
+            <button type="submit">Hae</button>
+        </form>
+        <br>
+        <form method="get" action="index.php">
+            <label for="elain">Hae ajanvaraus eläimen nimen perusteella:</label>
+            <input type="text" id="elain" name="elain" value="<?php echo htmlspecialchars($elain, ENT_QUOTES, 'UTF-8'); ?>">
+            <button type="submit">Hae</button>
+        </form>
+        <hr>
+        <br>
         <h2>Ajanvaraukset</h2>
         <?php if (!empty($tuotteet)): ?>
             <table>
@@ -214,23 +243,6 @@ curl_close($curl);
                 </thead>
                 <tbody>
                     <?php foreach ($tuotteet as $tuote): 
-                    if((isset($_GET["id"]) && $_GET["id"] == $tuote['id']) || (isset($_GET["haku"]) && $_GET["haku"] == $tuote['elain'])) {
-                        ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($tuote['id'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td><?php echo htmlspecialchars($tuote['omistaja'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td><?php echo htmlspecialchars($tuote['elain'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td><?php echo htmlspecialchars($tuote['laji'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td><?php echo htmlspecialchars($tuote['ika'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td><?php echo htmlspecialchars($tuote['puhelin'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td><?php echo htmlspecialchars($tuote['kayntipaiva'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td><?php echo htmlspecialchars($tuote['kellonaika'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td><?php echo htmlspecialchars($tuote['syy'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td><?php echo htmlspecialchars($tuote['tila'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
-                        </tr>
-                        <?php
-                    }
-                    else {
                     ?>
                         <tr>
                             <td><?php echo htmlspecialchars($tuote['id'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
@@ -244,7 +256,7 @@ curl_close($curl);
                             <td><?php echo htmlspecialchars($tuote['syy'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
                             <td><?php echo htmlspecialchars($tuote['tila'] ?? '', ENT_QUOTES, 'UTF-8'); ?></td>
                         </tr>
-                    <?php } ?>
+                    
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -252,3 +264,4 @@ curl_close($curl);
             <p>Ei ajanvarauksia saatavilla.</p>
         <?php endif; ?>
     </div>
+</div>
