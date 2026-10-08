@@ -35,3 +35,17 @@ summary:hover {
     border: 1px solid #ddd;
     margin-top: 5px;
 }
+
+.lista-otsikko {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.haku-form {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    gap: 10px;
+    align-items: center;
+}
